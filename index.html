@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SmartStudy</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input, button, textarea { padding: 10px; margin: 5px 0; width: 100%; max-width: 400px; }
+    #auth-section, #user-section, #notes-section, #quiz-section, #admin-panel, #quiz-upload { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>📘 SmartStudy</h1>
+
+  <!-- 🔐 Login/Register -->
+  <div id="auth-section">
+    <h2>Login / Register</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="register()">Register</button>
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- 👤 User Info -->
+  <div id="user-section" style="display:none;">
+    <p id="user-info"></p>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <!-- 📘 Notes -->
+  <div id="notes-section" style="display:none;">
+    <h2>All Notes</h2>
+    <div id="notes-container"></div>
+  </div>
+
+  <!-- 🧪 Quiz -->
+  <div id="quiz-section" style="display:none;">
+    <h2>Take Quiz</h2>
+    <button onclick="startQuiz()">Start Quiz</button>
+    <div id="quiz-box" style="display:none;">
+      <p id="quiz-question-text"></p>
+      <div id="quiz-options-container"></div>
+      <button onclick="nextQuestion()">Next</button>
+    </div>
+    <p id="quiz-result"></p>
+  </div>
+
+  <!-- ✏️ Admin Notes Upload -->
+  <div id="admin-panel" style="display:none;">
+    <h3>Add Note</h3>
+    <input id="note-title" placeholder="Title">
+    <input id="note-subject" placeholder="Subject">
+    <textarea id="note-content" placeholder="Note content"></textarea>
+    <button onclick="addNote()">Add Note</button>
+    <p id="admin-message"></p>
+  </div>
+
+  <!-- 🧠 Admin Quiz Upload -->
+  <div id="quiz-upload" style="display:none;">
+    <h3>Upload Quiz Question</h3>
+    <input id="quiz-question" placeholder="Question">
+    <input id="quiz-options" placeholder="Options (comma separated)">
+    <input id="quiz-answer" placeholder="Correct Answer">
+    <input id="quiz-subject" placeholder="Subject">
+    <button onclick="uploadQuiz()">Upload</button>
+  </div>
+  <!-- 👨‍🏫 Admin View Scores -->
+<div id="score-board" style="display: none; margin-top: 30px;">
+  <h3>📊 Quiz Scores</h3>
+  <div id="score-list"></div>
+</div>
+
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
